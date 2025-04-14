@@ -15,16 +15,14 @@ Calorie + Protein Planner
 6. Exit
 """)
 
-def add_meal(name, calories, protein):
-    """Adds a meal to the log."""
+def add_meal(name, calories, protein): #Adds a meal to the log
     if name in meal_log:
         print(f"'{name}' already exists. Try updating it instead.")
     else:
         meal_log[name] = {'calories': calories, 'protein': protein}
         print(f"Added '{name}' with {calories} cal and {protein}g protein.")
 
-def view_meals():
-    """Displays all meals logged."""
+def view_meals(): #Displays all meals logged.
     if meal_log:
         print("\nLogged Meals:")
         for name, info in meal_log.items():
@@ -32,30 +30,26 @@ def view_meals():
     else:
         print("No meals logged yet. Go eat something!")
 
-def update_meal(name, calories, protein):
-    """Updates a meal's nutrition info."""
+def update_meal(name, calories, protein): #Updates a meal's nutrition info.
     if name in meal_log:
         meal_log[name] = {'calories': calories, 'protein': protein}
         print(f"Updated '{name}'.")
     else:
         print(f"Meal '{name}' not found. Try adding it first.")
 
-def delete_meal(name):
-    """Deletes a meal from the log."""
+def delete_meal(name): #Deletes a meal from the log.
     if name in meal_log:
         del meal_log[name]
         print(f"Deleted '{name}'.")
     else:
         print(f"'{name}' not found in your meals.")
 
-def get_totals():
-    """Calculates total calories and protein from all meals."""
+def get_totals(): #Calculates total calories and protein from all meals.
     total_cal = sum(info['calories'] for info in meal_log.values())
     total_pro = sum(info['protein'] for info in meal_log.values())
     print(f"\nTotal: {total_cal} calories, {total_pro}g protein")
 
-def is_valid_number(value):
-    """Checks if the input is a valid positive number."""
+def is_valid_number(value): #Checks if the input is a valid positive number.
     return value.replace('.', '', 1).isdigit()
 
 # Main loop
