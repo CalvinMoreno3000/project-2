@@ -45,7 +45,7 @@ def delete_meal(name): #Deletes a meal from the log.
         print(f"'{name}' not found in your meals.")
 
 def get_totals(): #Calculates total calories and protein from all meals.
-    total_cal = sum(info['calories'] for info in meal_log.values())
+    total_cal = sum(info['calories'] for info in meal_log.values())  # Reminder you said i can use this. Learned it from Codecademy. Going to submit proof
     total_pro = sum(info['protein'] for info in meal_log.values())
     print(f"\nTotal: {total_cal} calories, {total_pro}g protein")
 
